@@ -37,3 +37,7 @@ Pytorch Implementation For LPRNet, A High Performance And Lightweight License Pl
 
 1. [LPRNet: License Plate Recognition via Deep Neural Networks](https://arxiv.org/abs/1806.10447v1)
 2. [PyTorch中文文档](https://pytorch-cn.readthedocs.io/zh/latest/)
+
+# postscript
+
+If you found this useful, please give me a star, thanks!

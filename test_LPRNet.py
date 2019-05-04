@@ -1,3 +1,11 @@
+# -*- coding: utf-8 -*-
+# /usr/bin/env/python3
+
+'''
+test pretrained model.
+Author: aiboy.wei@outlook.com .
+'''
+
 from data.load_data import CHARS, CHARS_DICT, LPRDataLoader
 from PIL import Image, ImageDraw, ImageFont
 from model.LPRNet import build_lprnet

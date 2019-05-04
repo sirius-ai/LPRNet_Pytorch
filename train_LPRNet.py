@@ -1,3 +1,11 @@
+# -*- coding: utf-8 -*-
+# /usr/bin/env/python3
+
+'''
+Pytorch implementation for LPRNet.
+Author: aiboy.wei@outlook.com .
+'''
+
 from data.load_data import CHARS, CHARS_DICT, LPRDataLoader
 from model.LPRNet import build_lprnet
 # import torch.backends.cudnn as cudnn
