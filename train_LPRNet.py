@@ -98,7 +98,8 @@ def train():
         os.mkdir(args.save_folder)
 
     lprnet = build_lprnet(lpr_max_len=args.lpr_max_len, phase=args.phase_train, class_num=len(CHARS), dropout_rate=args.dropout_rate)
-    lprnet.cuda()
+    device = torch.device("cuda:0" if args.cuda else "cpu")
+    lprnet.to(device)
     print("Successful to build network!")
 
     # load pretrained model
