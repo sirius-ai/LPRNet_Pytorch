@@ -83,7 +83,7 @@ def collate_fn(batch):
         imgs.append(torch.from_numpy(img))
         labels.extend(label)
         lengths.append(length)
-    labels = np.asarray(labels).flatten().astype(np.float32)
+    labels = np.asarray(labels).flatten().astype(np.int)
 
     return (torch.stack(imgs, 0), torch.from_numpy(labels), lengths)
 
@@ -154,7 +154,7 @@ def train():
         if iteration !=0 and iteration % args.save_interval == 0:
             torch.save(lprnet.state_dict(), args.save_folder + 'LPRNet_' + '_iteration_' + repr(iteration) + '.pth')
 
-        if iteration % args.test_interval == 0:
+        if (iteration + 1) % args.test_interval == 0:
             Greedy_Decode_Eval(lprnet, test_dataset, args)
             lprnet.train() # should be switch to train mode
 
@@ -170,11 +170,10 @@ def train():
 
         if args.cuda:
             images = Variable(images.cuda())
-            labels = Variable(torch.FloatTensor(labels).cuda(), requires_grad=False)
+            labels = Variable(labels.cuda(), requires_grad=False)
         else:
             images = Variable(images)
-            labels = torch.FloatTensor(labels)
-            labels = Variable(torch.FloatTensor(labels), requires_grad=False)
+            labels = Variable(labels, requires_grad=False)
 
         # forward
         logits = lprnet(images)
