@@ -169,10 +169,10 @@ def train():
         lr = adjust_learning_rate(optimizer, epoch, args.learning_rate, args.lr_schedule)
 
         if args.cuda:
-            images = Variable(images.cuda())
-            labels = Variable(labels.cuda(), requires_grad=False)
+            images = Variable(images, requires_grad=False).cuda()
+            labels = Variable(labels, requires_grad=False).cuda()
         else:
-            images = Variable(images)
+            images = Variable(images, requires_grad=False)
             labels = Variable(labels, requires_grad=False)
 
         # forward
