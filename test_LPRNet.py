@@ -75,8 +75,8 @@ def test():
     finally:
         cv2.destroyAllWindows()
 
-def Greedy_Decode_Eval(net, datasets, args):
-    TestNet = net.eval()
+def Greedy_Decode_Eval(Net, datasets, args):
+    # TestNet = Net.eval()
     epoch_size = len(datasets) // args.test_batch_size
     batch_iterator = iter(DataLoader(datasets, args.test_batch_size, shuffle=True, num_workers=args.num_workers, collate_fn=collate_fn))
 
@@ -102,7 +102,7 @@ def Greedy_Decode_Eval(net, datasets, args):
             images = Variable(images)
 
         # forward
-        prebs = TestNet(images)
+        prebs = Net(images)
         # greedy decode
         prebs = prebs.cpu().detach().numpy()
         preb_labels = list()

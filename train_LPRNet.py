@@ -156,7 +156,7 @@ def train():
 
         if (iteration + 1) % args.test_interval == 0:
             Greedy_Decode_Eval(lprnet, test_dataset, args)
-            lprnet.train() # should be switch to train mode
+            # lprnet.train() # should be switch to train mode
 
         start_time = time.time()
         # load train data
@@ -202,8 +202,8 @@ def train():
     # save final parameters
     torch.save(lprnet.state_dict(), args.save_folder + 'Final_LPRNet_model.pth')
 
-def Greedy_Decode_Eval(net, datasets, args):
-    TestNet = net.eval()
+def Greedy_Decode_Eval(Net, datasets, args):
+    # TestNet = Net.eval()
     epoch_size = len(datasets) // args.test_batch_size
     batch_iterator = iter(DataLoader(datasets, args.test_batch_size, shuffle=True, num_workers=args.num_workers, collate_fn=collate_fn))
 
@@ -228,7 +228,7 @@ def Greedy_Decode_Eval(net, datasets, args):
             images = Variable(images)
 
         # forward
-        prebs = TestNet(images)
+        prebs = Net(images)
         # greedy decode
         prebs = prebs.cpu().detach().numpy()
         preb_labels = list()
