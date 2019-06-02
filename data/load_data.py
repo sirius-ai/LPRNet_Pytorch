@@ -54,7 +54,7 @@ class LPRDataLoader(Dataset):
         if len(label) == 8:
             if self.check(label) == False:
                 print(imgname)
-                assert("Error ^~^!!!")
+                assert 0, "Error label ^~^!!!"
         # if len(label) < self.lpr_max_len:
         #     label.append(CHARS_DICT["-"])
 

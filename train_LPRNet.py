@@ -118,7 +118,7 @@ def train():
                     if 'bn' in key:
                         m.state_dict()[key][...] = xavier(1)
                 elif key.split('.')[-1] == 'bias':
-                    m.state_dict()[key][...] = 0
+                    m.state_dict()[key][...] = 0.01
 
         lprnet.backbone.apply(weights_init)
         lprnet.container.apply(weights_init)
