@@ -52,7 +52,7 @@ def get_parser():
     parser.add_argument('--img_size', default=[94, 24], help='the image size')
     parser.add_argument('--train_img_dirs', default="~/workspace/trainMixLPR", help='the train images path')
     parser.add_argument('--test_img_dirs', default="~/workspace/testMixLPR", help='the test images path')
-    parser.add_argument('--dropout_rate', default=0., help='dropout rate.')
+    parser.add_argument('--dropout_rate', default=0.5, help='dropout rate.')
     parser.add_argument('--learning_rate', default=0.1, help='base value of learning rate.')
     parser.add_argument('--lpr_max_len', default=8, help='license plate number max length.')
     parser.add_argument('--train_batch_size', default=128, help='training batch size.')

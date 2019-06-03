@@ -33,7 +33,7 @@ Pytorch Implementation For LPRNet, A High Performance And Lightweight License Pl
 
 |  size  | personal test imgs(%) | inference@gtx 1060(ms) |
 | ------ | --------------------- | ---------------------- |
-|  1.7M  |         95.0+         |          0.5-          |
+|  1.7M  |         96.0+         |          0.5-          |
 
 # References
 
