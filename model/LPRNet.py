@@ -48,7 +48,7 @@ class LPRNet(nn.Module):
             nn.ReLU(),  # *** 22 ***
         )
         self.container = nn.Sequential(
-            nn.Conv2d(in_channels=516, out_channels=self.class_num, kernel_size=(1,1), stride=(1,1)),
+            nn.Conv2d(in_channels=448+self.class_num, out_channels=self.class_num, kernel_size=(1, 1), stride=(1, 1)),
             # nn.BatchNorm2d(num_features=self.class_num),
             # nn.ReLU(),
             # nn.Conv2d(in_channels=self.class_num, out_channels=self.lpr_max_len+1, kernel_size=3, stride=2),
